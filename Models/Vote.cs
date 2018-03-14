@@ -9,6 +9,8 @@ namespace dotnet_PoolingSystem.Models
     public class Vote
     {
         public Guid Id { get; set; }
+        [Required]
+        [StringLength(50)]
         public string Roll { get; set; }
         public String EventId { get; set; }
         public Event Event {get; set;}
