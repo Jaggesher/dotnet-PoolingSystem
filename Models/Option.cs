@@ -13,7 +13,7 @@ namespace dotnet_PoolingSystem.Models
         [StringLength(50)]
         public string Name { get; set; }
 
-        public String EventId { get; set; }
+        public Guid EventId { get; set; }
 
         public Event Event { get; set; }
         

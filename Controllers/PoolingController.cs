@@ -19,9 +19,15 @@ namespace dotnet_PoolingSystem.Controllers
         }
         
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var data = await _poolingService.getAll();
+            var model = new AllEventViewModel()
+            {
+                Events = data
+            };
+            
+            return Json(model);
         }
         
 
@@ -36,9 +42,16 @@ namespace dotnet_PoolingSystem.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddEvent(AddEventViewModel addEvent)
+        public async Task<IActionResult> AddEvent(AddEventViewModel addEvent)
         {
-            return Json(addEvent);
+
+            if(!ModelState.IsValid) return Redirect("AddEvent");
+
+            var result = await _poolingService.addEvent(addEvent);
+            if(!result){
+                return BadRequest("Some thing Went Wrong");
+            }
+            return Redirect("Index");
         }
 
         [HttpPost]

@@ -10,9 +10,41 @@ namespace dotnet_PoolingSystem.Services
 {
     public class PoolingService : IPoolingService
     {
-        public Task<bool> addEvent(AddEventViewModel addEvent)
+        private readonly ApplicationDbContext _context;
+
+        public PoolingService(ApplicationDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        public async Task<bool> addEvent(AddEventViewModel addEvent)
+        {
+            Event newEvent = new Event()
+            {
+                Id = new Guid(),
+                Title = addEvent.Title,
+                Description = addEvent.Description,
+                StartDateTime = addEvent.StartDateTime,
+                EndDateTime = addEvent.EndDateTime
+            };
+
+            _context.Events.Add(newEvent);
+            
+            foreach(var Option in addEvent.Options)
+            {
+                Option newOption = new Option()
+                {
+                    Id = new Guid(),
+                    Name = Option,
+                    EventId = newEvent.Id
+                };
+
+                _context.Options.Add(newOption);
+            }
+
+            var tm = await _context.SaveChangesAsync();
+            var expect = addEvent.Options.Count +1 ;
+            return tm == expect;
         }
 
         public Task<bool> CheckVote(Guid eventId, string voterRoll)
@@ -20,9 +52,9 @@ namespace dotnet_PoolingSystem.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Event>> getAll()
+        public async Task<IEnumerable<Event>> getAll()
         {
-            throw new NotImplementedException();
+            return await _context.Events.Include(X => X.Options).ToListAsync();
         }
     }
 
