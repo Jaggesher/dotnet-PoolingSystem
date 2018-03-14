@@ -27,7 +27,7 @@ namespace dotnet_PoolingSystem.Controllers
                 Events = data
             };
             
-            return Json(model);
+            return View(model);
         }
         
 

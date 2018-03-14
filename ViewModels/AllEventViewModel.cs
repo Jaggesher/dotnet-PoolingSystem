@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
-using dotnet_PoolingSystem.Models;
 
 namespace dotnet_PoolingSystem.Models
 {
@@ -16,6 +15,9 @@ namespace dotnet_PoolingSystem.Models
 
         [Required]
         public Guid EventId { get; set; }
+
+        [Required]
+        public Guid OptionId {get; set; }
 
         public IEnumerable<Event> Events { get; set; }
         
