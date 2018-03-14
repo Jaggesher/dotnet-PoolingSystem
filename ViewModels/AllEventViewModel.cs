@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using dotnet_PoolingSystem.Models;
 
-namespace dotnet_PoolingSystem.ViewModels
+namespace dotnet_PoolingSystem.Models
 {
     public class AllEventViewModel
     {
