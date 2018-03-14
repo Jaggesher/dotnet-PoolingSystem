@@ -35,6 +35,7 @@ namespace dotnet_PoolingSystem
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddScoped<IPoolingService, PoolingService>();
 
             services.AddMvc();
         }

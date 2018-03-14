@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using dotnet_PoolingSystem.Models;
-using dotnet_eventRegistration.ViewModels;
+using dotnet_PoolingSystem.ViewModels;
 using dotnet_PoolingSystem.Services;
 using Microsoft.AspNetCore.Authorization;
 

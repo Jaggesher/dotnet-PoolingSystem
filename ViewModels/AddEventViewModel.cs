@@ -4,7 +4,7 @@ using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
-namespace dotnet_eventRegistration.ViewModels
+namespace dotnet_PoolingSystem.ViewModels
 {
     public class AddEventViewModel
     {
