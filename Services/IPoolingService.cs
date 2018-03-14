@@ -8,7 +8,7 @@ namespace dotnet_PoolingSystem.Services
 {
     public interface IPoolingService
     {
-        Task<String> addEvent();
+        Task<bool> addEvent(AddEventViewModel addEvent);
         Task<IEnumerable<Event>> getAll();
         Task<bool> CheckVote(Guid eventId,String voterRoll);
 

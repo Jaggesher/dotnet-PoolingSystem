@@ -10,7 +10,7 @@ namespace dotnet_PoolingSystem.Services
 {
     public class PoolingService : IPoolingService
     {
-        public Task<string> addEvent()
+        public Task<bool> addEvent(AddEventViewModel addEvent)
         {
             throw new NotImplementedException();
         }
