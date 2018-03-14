@@ -15,6 +15,9 @@ namespace dotnet_PoolingSystem.Data
         {
         }
 
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Option> Options { get; set; }
+        public DbSet<Vote> Votes { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
