@@ -28,6 +28,7 @@ namespace dotnet_PoolingSystem.Models
         public DateTime EndDateTime { get; set; }
 
         [Required]
+        [Display(Name ="Options")]
         public List<String> Options { get; set; }
     }
 }

@@ -39,11 +39,30 @@
                         <span asp-validation-for="EndDateTime" class="text-danger"></span>
                     </div>
 
-                    <div class="form-group">
-                        <label asp-for="Options"></label>
-                        <input asp-for="Options" class="form-control" />
-                        <span asp-validation-for="Options" class="text-danger"></span>
+                    <div id="MultipleOptions">
+
+                        <div class="form-group">
+                            <label asp-for="Options[0]"></label>
+                            <input asp-for="Options[0]" class="form-control" />
+                            <span asp-validation-for="Options[0]" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Options[1]"></label>
+                            <input asp-for="Options[1]" class="form-control" />
+                            <span asp-validation-for="Options[1]" class="text-danger"></span>
+                        </div>
+
                     </div>
+
+                    <div class="form-group">
+
+                        <button id="AddAnotherOption" type="button" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-ok"></span> Add Another Option 
+                        </button>
+                        
+                    </div>
+
 
                     <button type="submit" class="btn btn-default">Confirm</button>
                 </form>

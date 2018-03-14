@@ -38,7 +38,7 @@ namespace dotnet_PoolingSystem.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult AddEvent(AddEventViewModel addEvent)
         {
-            return View();
+            return Json(addEvent);
         }
 
         [HttpPost]
